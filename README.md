@@ -17,6 +17,9 @@ Para la generaci처n masiva de c처digos QR, puede acceder a [este generador de c�
 ### Recomendaciones para el Uso de C처digos QR
 
 -   **Delegados:** Se sugiere imprimir los c처digos QR en papel autoadhesivo para facilitar su colocaci처n en las identificaciones visibles de los delegados.
+
+![Ejemplo de Tag de Persona](./docs/id.jpg)
+
 -   **Equipajes:** Se recomienda utilizar tags similares a los empleados en los aeropuertos para adherir los c처digos QR a los equipajes.
 
 ![Ejemplo de Tag de Equipaje](./docs/tag.png)
