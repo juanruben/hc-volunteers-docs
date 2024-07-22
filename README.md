@@ -85,6 +85,16 @@ En caso de surgir una emergencia con un delegado, también podrá reportar detal
 ![assignmets](./docs/event/event-list1.png)
 ![assignmets](./docs/event/event-list2.png)
 
+# DEMO
+
+[Aplicación](https://d2zasmofz30od8.cloudfront.net/)
+
+[Generador de QR](https://d2zasmofz30od8.cloudfront.net/generator)
+
+[Códigos QR de ejemplo para casos de uso 2](https://d2zasmofz30od8.cloudfront.net/demo-luggage) (Abrir la aplicación y seleccionar el siguiente punto de control: Hotel Marriott Santiago)
+
+[Códigos QR de ejemplo para casos de uso 3](https://d2zasmofz30od8.cloudfront.net/demo) (Abrir la aplicación y seleccionar el siguiente punto de control: Casa Valle Viñamar)
+
 # Consideraciones técnicas
 
 ### Tipos
