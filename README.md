@@ -46,7 +46,7 @@ Para la generación masiva de códigos QR, puede acceder a [este generador de c�
 
 ![assignmets](./docs/airport/camera.png)
 
--   Al completarse el escaneo se muestra la verificación correspondiente junto al nombre del delegado. En este momento el mismo botón le permitirá proceder a escanear los códigos QR colocados en cada pieza de equipaje. Para evitar confusiones, siempre será preferible instalar el QR _antes_ de proceder a escanearlo
+-   Al completarse el escaneo se muestra la verificación correspondiente junto al nombre del delegado. En este momento el mismo botón le permitirá proceder a escanear los códigos QR colocados en cada pieza de equipaje. Para evitar confusiones, siempre será preferible colocar el QR _antes_ de proceder a escanearlo
 
 ![assignmets](./docs/airport/airport-list-scanned.png)
 
