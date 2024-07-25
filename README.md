@@ -151,7 +151,7 @@ interface INotification {
 }
 
 // id: identificador único para el delegado. Se recomienda que sea un guid
-// nombre: nombre completo del delagado
+// nombre: nombre completo del delegado
 // countryCode: Código de dos caracteres del país de procedencia
 // airline: Opcional. Nombre de la aerolinea en que llegará el delegado. Esta información es mostrada cuando el punto de control es enrollment
 // flight: Opcional. Número de vuelo en que llegará el delegado. Esta información es mostrada cuando el punto de control es enrollment
