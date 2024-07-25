@@ -34,9 +34,9 @@ Para la generación masiva de códigos QR, puede acceder a [este generador de c�
 
 [Generador de QR](https://d2zasmofz30od8.cloudfront.net/generator)
 
-[Códigos QR de ejemplo para casos de uso 2](https://d2zasmofz30od8.cloudfront.net/demo-luggage) (Abrir la aplicación y seleccionar el siguiente punto de control: Hotel Marriott Santiago)
+[Códigos QR de ejemplo para casos de uso 2](https://d2zasmofz30od8.cloudfront.net/demo-luggage) (Por conveniencia se sugiere abrir este link en una pantalla de computador y por otro lado abrir la aplicación en el teléfono y seleccionar el siguiente punto de control: Hotel Marriott Santiago)
 
-[Códigos QR de ejemplo para casos de uso 3](https://d2zasmofz30od8.cloudfront.net/demo) (Abrir la aplicación y seleccionar el siguiente punto de control: Casa Valle Viñamar)
+[Códigos QR de ejemplo para casos de uso 3](https://d2zasmofz30od8.cloudfront.net/demo) (Por conveniencia se sugiere abrir este link en una pantalla de computador y por otro lado abrir la aplicación en el teléfono y seleccionar el siguiente punto de control: Casa Valle Viñamar)
 
 # Casos de uso
 
