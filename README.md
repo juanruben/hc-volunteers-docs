@@ -24,6 +24,20 @@ Para la generación masiva de códigos QR, puede acceder a [este generador de c�
 
 ![Ejemplo de Tag de Equipaje](./docs/tag.png)
 
+# DEMO
+
+[Aplicación](https://d2zasmofz30od8.cloudfront.net/)
+
+-   email: voluntario@transporte.cl
+
+-   contraseña: Clave123!
+
+[Generador de QR](https://d2zasmofz30od8.cloudfront.net/generator)
+
+[Códigos QR de ejemplo para casos de uso 2](https://d2zasmofz30od8.cloudfront.net/demo-luggage) (Abrir la aplicación y seleccionar el siguiente punto de control: Hotel Marriott Santiago)
+
+[Códigos QR de ejemplo para casos de uso 3](https://d2zasmofz30od8.cloudfront.net/demo) (Abrir la aplicación y seleccionar el siguiente punto de control: Casa Valle Viñamar)
+
 # Casos de uso
 
 ## Ingreso
@@ -87,20 +101,6 @@ En caso de surgir una emergencia con un delegado, también podrá reportar detal
 ![assignmets](./docs/event/event-scan.png)
 ![assignmets](./docs/event/event-list1.png)
 ![assignmets](./docs/event/event-list2.png)
-
-# DEMO
-
-[Aplicación](https://d2zasmofz30od8.cloudfront.net/)
-
--   email: voluntario@transporte.cl
-
--   contraseña: Clave123!
-
-[Generador de QR](https://d2zasmofz30od8.cloudfront.net/generator)
-
-[Códigos QR de ejemplo para casos de uso 2](https://d2zasmofz30od8.cloudfront.net/demo-luggage) (Abrir la aplicación y seleccionar el siguiente punto de control: Hotel Marriott Santiago)
-
-[Códigos QR de ejemplo para casos de uso 3](https://d2zasmofz30od8.cloudfront.net/demo) (Abrir la aplicación y seleccionar el siguiente punto de control: Casa Valle Viñamar)
 
 # Consideraciones técnicas
 
