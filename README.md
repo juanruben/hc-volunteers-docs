@@ -271,6 +271,8 @@ Registra que el viaje `id` ha llegado a su destino, registrando el voluntario qu
 
 -   **Response:** `boolean`
 
+## Otros
+
 ### `GET /trips/{tripId}/protocols`
 
 Retorna el texto que se mostrará en la sección de protocolos, asociado al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
