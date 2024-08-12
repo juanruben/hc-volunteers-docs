@@ -276,28 +276,12 @@ Registra que el viaje `id` ha llegado a su destino, registrando el voluntario qu
 Retorna el texto que se mostrará en la sección de protocolos, asociado al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
 
 -   **Response ejemplo:**
+
     ```json
     {
         "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
         "tripName": "Bus 15 Aeropuerto - Hotel",
-        "text": `
-                Aquí puede publicarse información importante relacionada <i style={{ fontWeight: 600 }}>con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.
-                <p>Por ejemplo:</p>
-                <ul>
-                    <li>Protocolos de seguridad que se deben seguir </li>
-                    <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>
-                    <li>Qué hacer ante un imprevisto</li>
-                    <li>Rutas de evacuación</li>
-                    <li>
-                        Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:
-                        <br />
-                        <br />
-                        <div>
-                            <img src='https://placehold.co/400' width='100%' style={{ maxWidth: '300px' }}  />
-                        </div>
-                    </li>
-                </ul>
-            `
+        "text": "\n    Aquí puede publicarse información importante relacionada <i style=\"font-weight: 600;\">con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>Protocolos de seguridad que se deben seguir </li>\n        <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>\n        <li>Qué hacer ante un imprevisto</li>\n        <li>Rutas de evacuación</li>\n        <li>\n            Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:\n            <br />\n            <br />\n            <div>\n                <img src='https://placehold.co/400' width='100%' style=\"max-width: 300px;\" />\n            </div>\n        </li>\n    </ul>\n"
     }
     ```
 
