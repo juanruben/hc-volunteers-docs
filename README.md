@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-El propósito de esta herramienta es proporcionar un mecanismo para registrar los delegados a ser transportados durante las Asambleas Especiales Chile 2024. Está dirigida exclusivamente a los voluntarios que trabajarán como capitanes de buses o como sus ayudantes.
+El propósito de esta herramienta es proporcionar un mecanismo para registrar los delegados a ser transportados durante las Asambleas Especiales Chile 2024. Está dirigida exclusivamente a los voluntarios que trabajarán como capitanes de buses o sus ayudantes.
 
 [Aplicación](https://d2zasmofz30od8.cloudfront.net/)
 
@@ -18,13 +18,13 @@ El propósito de esta herramienta es proporcionar un mecanismo para registrar lo
 
 ![login](./pics/login.png)
 
--   Se muestran la(s) asignacion(es) que tiene el voluntario para ese día:
+-   Se muestran la(s) asignación(es) que tiene el voluntario para ese día:
 
 ![assignmets](./pics/assignments.png)
 
 ## Control
 
--   A través de la vista de control podrá registrar los delegados (y verificar la cantidad de sus respectivos equipajes), que vayan presentándose para abordar el transporte previamente asignado. Es posible Buscar/Filtrar entre el listado de delegados utilizando su nombre, código o alojamiento.
+-   A través de la vista de control podrá registrar los delegados (y opcionalmente verificar la cantidad de sus respectivos equipajes), que vayan presentándose para abordar el transporte previamente asignado. Es posible Buscar/Filtrar entre el listado de delegados utilizando su nombre, código o alojamiento.
 
 ![assignmets](./pics/list.png)
 ![assignmets](./pics/list2.png)
@@ -60,9 +60,9 @@ En caso de surgir una emergencia con un delegado, también podrá reportar detal
 // id: identificador único para el viaje. Será utilizado en otras operaciones. Se recomienda que sea un guid
 // nombre: es el nombre visible del viaje
 // description: descripción visible del viaje
-// showLuggage: booleano. Indica si en el proceso de registro el voluntario debería visualizar información de equipaje (cantidad)
-// departureTime: Fecha y hora en que es registrada la partida del transporte
-// arrivalTime: Fecha y hora en que es registrada la llegada del transporte
+// showLuggage: opcional. booleano. Indica si en el proceso de registro el voluntario debería visualizar información de equipaje (cantidad)
+// departureTime: opcional. Fecha y hora en que es registrada la partida del transporte
+// arrivalTime: opcional. Fecha y hora en que es registrada la llegada del transporte
 interface ITrip {
     id: string;
     name: string;
@@ -97,8 +97,8 @@ interface INotificationsList {
 // nombre: nombre completo del delegado
 // countryCode: Código de dos caracteres del país de procedencia
 // accommodation: Nombre del hotel en donde aloja el delegado
-// checkedBy: Opcional. Nombre del voluntario que registró el embarque del delegado
-// checkedAt: Opcional. Fecha y hora en la que se registró el embarque del delegado
+// checkedBy: opcional. Nombre del voluntario que registró el embarque del delegado
+// checkedAt: opcional. Fecha y hora en la que se registró el embarque del delegado
 // luggageCount: Opcional. Cantidad de piezas de equipaje del delegado
 interface IDelegate {
     id: string;
