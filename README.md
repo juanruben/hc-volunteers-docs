@@ -180,8 +180,8 @@ Retorna los viajes en los que el voluntario ha sido asignado en la fecha actual.
             "name": "Bus 15 Aeropuerto - Hotel",
             "address": "Best Western, Courtyard, Marriott",
             "showLuggage": true,
-            "departureTime": undefined,
-            "arrivalTime": undefined,
+            "departureTime": "undefined", // undefined
+            "arrivalTime": "undefined", // undefined
             "delegates": []
         }
     ]
@@ -200,8 +200,8 @@ Retorna la información del viaje `tripId`.
         "name": "Bus 15 Aeropuerto - Hotel",
         "address": "Best Western, Courtyard, Marriott",
         "showLuggage": true,
-        "departureTime": undefined,
-        "arrivalTime": undefined,
+        "departureTime": "undefined", // undefined
+        "arrivalTime": "undefined",  // undefined
         "delegates": [
             {
                 "id": "53580",
@@ -281,7 +281,7 @@ Retorna el texto que se mostrará en la sección de protocolos, asociado al viaj
     {
         "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
         "tripName": "Bus 15 Aeropuerto - Hotel",
-        "text": "\n    Aquí puede publicarse información importante relacionada <i style=\"font-weight: 600;\">con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>Protocolos de seguridad que se deben seguir </li>\n        <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>\n        <li>Qué hacer ante un imprevisto</li>\n        <li>Rutas de evacuación</li>\n        <li>\n            Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:\n            <br />\n            <br />\n            <div>\n                <img src='https://placehold.co/400' width='100%' style=\"max-width: 300px;\" />\n            </div>\n        </li>\n    </ul>\n"
+        "text": "Aquí puede publicarse información importante relacionada <i style=\"font-weight: 600;\">con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>Protocolos de seguridad que se deben seguir </li>\n        <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>\n        <li>Qué hacer ante un imprevisto</li>\n        <li>Rutas de evacuación</li>\n        <li>\n            Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:\n            <br />\n            <br />\n            <div>\n                <img src='https://placehold.co/400' width='100%' style=\"max-width: 300px;\" />\n            </div>\n        </li>\n    </ul>"
     }
     ```
 
@@ -290,29 +290,13 @@ Retorna el texto que se mostrará en la sección de protocolos, asociado al viaj
 Retorna el texto que se mostrará en la sección de emergencias asociadas al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
 
 -   **Response ejemplo:**
+
     ```json
-        {
-            "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
-            "tripName": "Bus 15 Aeropuerto - Hotel",
-            "text": "
-                <p>
-                    En caso de emergencias durante esta asignación el voluntario puede consultar esta sección para encontrar información sobre hospitales, clínicas, farmacias, etc. cercanos a la ubicación
-                    de esta asignación.
-                </p>
-                <p>Por ejemplo:</p>
-                <ul>
-                    <li>
-                        <div>Hospital Gustavo Fricke</div>
-                        <a href='https://maps.google.com/?q=-33.02877500992159,%20-71.54304099594539'>📍 Álvarez 1532, Viña del Mar, Valparaíso</a>
-                    </li>
-                    <li>
-                        <div>Farmacia Cruz Verde</div>
-                        <a href='https://maps.google.com/?q=-32.99438845000991, -71.51027942681407'>📍 Avenida Alessandri, Almte. Gómez Carreño 4085, Viña del Mar, Valparaíso</a>
-                    </li>
-                </ul>
-                <p>También puede reportar detalles de la emergencia introduciendo el id del delegado y registrando un mensaje al comité de hospitalidad.</p>
-            ",
-        }
+    {
+        "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
+        "tripName": "Bus 15 Aeropuerto - Hotel",
+        "text": "<p>\n        En caso de emergencias durante esta asignación el voluntario puede consultar esta sección para encontrar información sobre hospitales, clínicas, farmacias, etc. cercanos a la ubicación\n        de esta asignación.\n    </p>\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>\n            <div>Hospital Gustavo Fricke</div>\n            <a href='https://maps.google.com/?q=-33.02877500992159,%20-71.54304099594539'>📍 Álvarez 1532, Viña del Mar, Valparaíso</a>\n        </li>\n        <li>\n            <div>Farmacia Cruz Verde</div>\n            <a href='https://maps.google.com/?q=-32.99438845000991,-71.51027942681407'>📍 Avenida Alessandri, Almte. Gómez Carreño 4085, Viña del Mar, Valparaíso</a>\n        </li>\n    </ul>\n    <p>También puede reportar detalles de la emergencia introduciendo el id del delegado y registrando un mensaje al comité de hospitalidad.</p>"
+    }
     ```
 
 ### `GET /trips/{tripId}/notifications`
