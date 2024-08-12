@@ -180,8 +180,8 @@ Retorna los viajes en los que el voluntario ha sido asignado en la fecha actual.
             "name": "Bus 15 Aeropuerto - Hotel",
             "address": "Best Western, Courtyard, Marriott",
             "showLuggage": true,
-            "departureTime": "undefined", // undefined
-            "arrivalTime": "undefined", // undefined
+            "departureTime": undefined
+            "arrivalTime": undefined
             "delegates": []
         }
     ]
@@ -200,8 +200,8 @@ Retorna la información del viaje `tripId`.
         "name": "Bus 15 Aeropuerto - Hotel",
         "address": "Best Western, Courtyard, Marriott",
         "showLuggage": true,
-        "departureTime": "undefined", // undefined
-        "arrivalTime": "undefined",  // undefined
+        "departureTime": undefined
+        "arrivalTime": undefined
         "delegates": [
             {
                 "id": "53580",
