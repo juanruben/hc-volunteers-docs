@@ -2,29 +2,7 @@
 
 ## Objetivo
 
-El propósito de esta herramienta es proporcionar un mecanismo intuitivo, rápido y eficiente para registrar la ubicación de los delegados durante las Asambleas Especiales Chile 2024. Está dirigida exclusivamente a los voluntarios asignados a los puntos de control.
-
-## Definición de Punto de Control
-
-Un punto de control es cualquier lugar donde sea necesario registrar la presencia de los delegados y/o sus equipajes.
-
-## Tecnología Utilizada
-
-Se emplea la tecnología de generación y lectura de códigos QR, los cuales serán adheridos a la identificación visible de los delegados y a cada pieza de equipaje.
-
-Para la generación masiva de códigos QR, puede acceder a [este generador de códigos QR](https://d2zasmofz30od8.cloudfront.net/generator). Este generador permite crear e imprimir códigos QR aleatorios fácilmente, que se utilizarán en el proceso de seguimiento.
-
-### Recomendaciones para el Uso de Códigos QR
-
--   **Delegados:** Se sugiere imprimir los códigos QR en papel autoadhesivo para facilitar su colocación en las identificaciones visibles de los delegados.
-
-![Ejemplo de Tag de Persona](./docs/id.jpg)
-
--   **Equipajes:** Se recomienda utilizar tags similares a los empleados en los aeropuertos para adherir los códigos QR a los equipajes.
-
-![Ejemplo de Tag de Equipaje](./docs/tag.png)
-
-# DEMO
+El propósito de esta herramienta es proporcionar un mecanismo para registrar los delegados a ser transportados durante las Asambleas Especiales Chile 2024. Está dirigida exclusivamente a los voluntarios que trabajarán como capitanes de buses o como sus ayudantes.
 
 [Aplicación](https://d2zasmofz30od8.cloudfront.net/)
 
@@ -32,111 +10,67 @@ Para la generación masiva de códigos QR, puede acceder a [este generador de c�
 
 -   contraseña: Clave123!
 
-[Generador de QR](https://d2zasmofz30od8.cloudfront.net/generator)
-
-[Códigos QR de ejemplo para casos de uso 2](https://d2zasmofz30od8.cloudfront.net/demo-luggage) (Por conveniencia se sugiere abrir este link en una pantalla de computador y por otro lado abrir la aplicación en el teléfono y seleccionar el siguiente punto de control: Hotel Marriott Santiago)
-
-[Códigos QR de ejemplo para casos de uso 3](https://d2zasmofz30od8.cloudfront.net/demo) (Por conveniencia se sugiere abrir este link en una pantalla de computador y por otro lado abrir la aplicación en el teléfono y seleccionar el siguiente punto de control: Casa Valle Viñamar)
-
 # Casos de uso
 
 ## Ingreso
 
 -   El voluntario se autentica a través del formulario de acceso:
 
-![login](./docs/login.png)
+![login](./pics/login.png)
 
 -   Se muestran la(s) asignacion(es) que tiene el voluntario para ese día:
 
-![assignmets](./docs/assignments.png)
+![assignmets](./pics/assignments.png)
 
-## Caso 1: Enrolamiento
+## Control
 
--   Cuando el voluntario es asignado a un punto de control con enrolamiento, debe contar con los códigos QR preimpresos. A través de las siguientes vistas podrá vincular/enrolar los delegados (y sus respectivos equipajes), que vayan presentándose de acuerdo con el cronograma de aterrizajes preestablecidos. Es posible Buscar/Filtrar entre el listado de delegados que se esperan para ese día.
+-   A través de la vista de control podrá registrar los delegados (y verificar la cantidad de sus respectivos equipajes), que vayan presentándose para abordar el transporte previamente asignado. Es posible Buscar/Filtrar entre el listado de delegados utilizando su nombre, código o alojamiento.
 
-![assignmets](./docs/airport/airport-list.png)
+![assignmets](./pics/list.png)
+![assignmets](./pics/list2.png)
 
--   Una vez ubicado el nombre del delegado, coloca en su identificación visible un nuevo código QR. Una vez adherido procede a escanera el código con el botón de escanéo junto al nombre del delegado, el cual abrirá la cámara del dispositivo:
+-   Una vez ubicado el nombre del delegado se puede presionar el botón verde con la fecha hacia arriba para indicar que abordó la unidad de transporte y que la cantidad de piezas de su equipaje fueron verificadas. Esto permitirá saber fácilmente el total de delegados y de piezas de equipaje que se han registrado.
 
-![assignmets](./docs/airport/camera.png)
+Una vez completada la verificación de los delegados, el botón superior con ícono de Bus verde permite iniciar el viaje. A partir de este momento solo resta completar el viaje y registrar la llegada utilizando el mismo botón que ahora es un Bus naranjo.
 
--   Al completarse el escaneo se muestra la verificación correspondiente junto al nombre del delegado. En este momento el mismo botón le permitirá proceder a escanear los códigos QR colocados en cada pieza de equipaje. Para evitar confusiones, siempre será preferible colocar el QR _antes_ de proceder a escanearlo
+![assignmets](./pics/list3.png)
+![assignmets](./pics/list4.png)
 
-![assignmets](./docs/airport/airport-list-scanned.png)
+-   En el menú inferior puede seleccionarse la opción _Protocolos_ para consultar los procedimientos asociados a la asignación. Allí estará publicada información importante relacionada con la asignación, y será visible a todos los voluntarios asociados a la misma.
 
--   Al registrar el equipaje, se mostrará la cantidad correspondiente en la sección perteneciente al delegado, y a su vez un total en la parte superior de la aplicación. Esto permitirá saber fácilmente el total de delegados y de piezas de equipaje que se han registrado.
-
-![assignmets](./docs/airport/airport-luggage.png)
-
--   En el menú inferior puede seleccionarse la opción _Protocolos_ para consultar los procedimientos asociados a la asignación. Allí estará publicada información importante relacionada con _el punto de control_, y será visible a todos los voluntarios asociados a la misma.
-
-![assignmets](./docs/airport/protocolos.png)
+![assignmets](./pics/protocols.png)
 
 -   La sección de notificaciones es una forma sencilla de enviar alertas a todos los voluntarios asignados a este punto de control. Pueden ser mensajes de último momento, recordatorios, actualizaciones, etc.
 
-![assignmets](./docs/airport/notificaciones.png)
+![assignmets](./pics/notifications.png)
 
 -   La sección de Emergencia permite al voluntario consultar información sobre hospitales, clínicas, farmacias, etc. cercanos a la ubicación del punto de control.
 
-En caso de surgir una emergencia con un delegado, también podrá reportar detalles de la misma escaneando el código QR del delegado y registrando un mensaje al comité de hospitalidad
+En caso de surgir una emergencia con un delegado, también podrá reportar detalles de la misma utilizando el código del delegado y registrando un mensaje al comité de hospitalidad
 
-![assignmets](./docs/airport/emergency.png)
-![assignmets](./docs/airport/emergency-button.png)
-![assignmets](./docs/airport/emergency-report.png)
-
-## Caso 2: Punto de control con chequeo de equipaje
-
--   En este tipo de puntos de control, cada delegado y sus respectivos equipajes se encuentran con un QR registrado en el sistema. Esto permitirá simplemente escanear cada QR y saber de forma muy rápida y sencilla si hay algún delegado o equipaje que no se ha presentado
-
-![assignmets](./docs/hotel/hotel-list.png)
-![assignmets](./docs/hotel/hotel-scan0.png)
-![assignmets](./docs/hotel/hotel-scan1.png)
-![assignmets](./docs/hotel/hotel-scan2.png)
-
-## Caso 3: Punto de control
-
--   En este tipo de puntos de control, cada delegado se encuentra con un QR registrado en el sistema. Esto permitirá simplemente escanear cada QR y saber de forma muy rápida y sencilla si hay algún delegado que no se ha presentado
-
-![assignmets](./docs/event/event-list.png)
-![assignmets](./docs/event/event-scan.png)
-![assignmets](./docs/event/event-list1.png)
-![assignmets](./docs/event/event-list2.png)
+![assignmets](./pics/emergency.png)
+![assignmets](./pics/emergency-button.png)
+![assignmets](./pics/emergency-report.png)
 
 # Consideraciones técnicas
 
 ### Tipos
 
 ```typescript
-/*
-'enrollment': punto de control en el cual se asignan códigos QR a los delegados y a sus equipajes. Por ejemplo: Aeropuerto
-'chech-luggage': punto de control en donde se desea registrar la presencia de delegados con equipajes: Por ejemplo: Antes de abordar un bus mientras lleva equipaje
-'normal': punto de control en donde se desea registrar la presencia de delegados. Por ejemplo: a la entrada o salida de un evento
-*/
-type ControlPointType = "enrollment" | "check-luggage" | "normal";
-
-// qr: Valor del código QR
-// at: Fecha/Hora del registro
-// by: Nombre del voluntario que escaneó el código QR
-interface ILog {
-    qr: string;
-    at?: string;
-    by?: string;
-}
-
-// id: identificador único para el punto de control. Será utilizado en otras operaciones. Se recomienda que sea un guid
-// nombre: es el nombre visible del punto de control
-// address: dirección del punto de control
-// location: coordenadas gps del punto de control
-// type: tipo de punto de control (enrollment, check-luggage o normal)
-interface IControlPoint {
+// id: identificador único para el viaje. Será utilizado en otras operaciones. Se recomienda que sea un guid
+// nombre: es el nombre visible del viaje
+// description: descripción visible del viaje
+// showLuggage: booleano. Indica si en el proceso de registro el voluntario debería visualizar información de equipaje (cantidad)
+// departureTime: Fecha y hora en que es registrada la partida del transporte
+// arrivalTime: Fecha y hora en que es registrada la llegada del transporte
+interface ITrip {
     id: string;
     name: string;
-    address: string;
-    location: {
-        lat: number;
-        lon: number;
-    };
-    type: ControlPointType;
+    description: string;
+    showLuggage?: boolean;
+    departureTime?: string;
+    arrivalTime?: string;
+    delegates: IDelegate[];
 }
 
 // id: identificador único para la notificación. Se recomienda que sea un guid
@@ -145,30 +79,53 @@ interface IControlPoint {
 // message: cuerpo de la notificación
 interface INotification {
     id: string;
-    created_at: string;
+    dateTime: string;
     subject: string;
     message: string;
 }
 
-// id: identificador único para el delegado. Se recomienda que sea un guid
+// tripId: identificador único del viaje al que pertenece el listado de notificaciones. Se recomienda que sea un guid
+// tripName: nombre visible del viaje al que pertenece el listado de notificaciones
+// notifications: array de notificaciones
+interface INotificationsList {
+    tripId: string;
+    tripName: string;
+    notifications: INotification[];
+}
+
+// id: identificador único para el delegado
 // nombre: nombre completo del delegado
 // countryCode: Código de dos caracteres del país de procedencia
-// airline: Opcional. Nombre de la aerolinea en que llegará el delegado. Esta información es mostrada cuando el punto de control es enrollment
-// flight: Opcional. Número de vuelo en que llegará el delegado. Esta información es mostrada cuando el punto de control es enrollment
-// arrival: Opcional. Hora en que llegará el delegado. Esta información es mostrada cuando el punto de control es enrollment
-// accomodation: Opcional. Nombre del hotel en que alojará el delegado. Esta información es mostrada cuando el punto de control es enrollment
-// enrolled: Opcional. Es llenado cuando el delegado es enrolado con un qr por un voluntario
-// luggage: Opcional. Array con la información de enrolamiento de cada equipaje del delegado. Es llenado cuando un voluntario asocia un qr a cada equipaje del delegado
+// accommodation: Nombre del hotel en donde aloja el delegado
+// checkedBy: Opcional. Nombre del voluntario que registró el embarque del delegado
+// checkedAt: Opcional. Fecha y hora en la que se registró el embarque del delegado
+// luggageCount: Opcional. Cantidad de piezas de equipaje del delegado
 interface IDelegate {
     id: string;
     name: string;
     countryCode: string;
-    airline?: string;
-    flight?: string;
-    arrival?: string;
-    accommodation?: string;
-    enrolled?: ILog;
-    luggage?: ILog[];
+    accommodation: string;
+    checkedBy?: string;
+    checkedAt?: string;
+    luggageCount?: number;
+}
+
+// tripId: identificador único del viaje. Se recomienda que sea un guid
+// tripName: nombre visible del viaje
+// text: contenido a mostrar
+interface IEmergencyInfo {
+    tripId: string;
+    tripName: string;
+    text: string;
+}
+
+// tripId: identificador único del viaje. Se recomienda que sea un guid
+// tripName: nombre visible del viaje
+// text: contenido a mostrar
+interface IProtocol {
+    tripId: string;
+    tripName: string;
+    text: string;
 }
 ```
 
@@ -208,191 +165,203 @@ interface IDelegate {
 
 Todos los endpoints a continuación están restringidos a usuarios registrados y autenticados. El token de autenticación es enviado en el header de cada request.
 
-## Puntos de Control
+## Viaje
 
-### GET `/control_points`
+### GET `/trips`
 
-Retorna los puntos de control en los que el voluntario ha sido asignado en la fecha actual.
+Retorna los viajes en los que el voluntario ha sido asignado en la fecha actual.
 
--   **Response:** `IControlPoint[]`
+-   **Response:** `ITrip[]`
 -   **Ejemplo:**
     ```json
     [
         {
             "id": "5390efa3-c9e2-47e1-a74f-3a163021f71b",
-            "name": "Aeropuerto Internacional",
-            "address": "Av. Armando Cortínez Ote. 1704, Pudahuel, Región Metropolitana",
-            "location": {
-                "lat": -33.39633234816399,
-                "lng": -70.79386634466923
+            "name": "Bus 15 Aeropuerto - Hotel",
+            "address": "Best Western, Courtyard, Marriott",
+            "showLuggage": true,
+            "departureTime": undefined,
+            "arrivalTime": undefined,
+            "delegates": []
+        }
+    ]
+    ```
+
+### GET `/trips/{tripId}`
+
+Retorna la información del viaje `tripId`.
+
+-   **Response:** `ITrip`
+-   **Ejemplo:**
+
+    ```json
+    {
+        "id": "5390efa3-c9e2-47e1-a74f-3a163021f71b",
+        "name": "Bus 15 Aeropuerto - Hotel",
+        "address": "Best Western, Courtyard, Marriott",
+        "showLuggage": true,
+        "departureTime": undefined,
+        "arrivalTime": undefined,
+        "delegates": [
+            {
+                "id": "53580",
+                "name": "John Smith",
+                "countryCode": "US",
+                "accommodation": "Hotel Marriott Santiago",
+                "luggageCount": 2,
+                "checkedBy": "Juan Pérez",
+                "checkedAt": "8/12/2024, 6:29:20 PM",
             },
-            "type": "enrollment"
-        }
-    ]
-    ```
-
-### `GET /control_points/{id}/protocols`
-
-Retorna el texto que se mostrará en la sección de protocolos. Este contenido está asociado al punto de control. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
-
--   **Response:** `string`
-
-### `GET /control_points/{id}/emergency_info`
-
-Retorna el texto que se mostrará en la sección de emergencias. Este contenido está asociado al punto de control. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
-
--   **Response:** `string`
-
-### `GET /control_points/{id}/notifications`
-
-Retorna un array con todas las notificaciones asociadas al punto de control. La app se encargará de consultar este endpoint con cierta frecuencia y destacar las notificaciones más recientes.
-
--   **Response:** `INotification[]`
--   **Ejemplo:**
-    ```json
-    [
-        {
-            "id": "notif1",
-            "created_at": "2024-07-21T10:00:00Z",
-            "subject": "Consideración importante",
-            "message": "Sit amet diam diam lorem et sanctus sea dolor erat stet, sit voluptua gubergren dolores ipsum voluptua et aliquyam nonumy."
-        }
-    ]
-    ```
-
-## Delegados
-
-### GET `/delegates`
-
-Retorna un array con los delegados asociados al punto de control `control_point_id`. Inicialmente no contendrá información de enrolamiento del delegado ni del equipaje.
-
--   **Params:**
-    ```json
-    {
-        "control_point_id": "string"
-    }
-    ```
--   **Response:** `IDelegate[]`
--   **Ejemplo:** `IDelegate[]`
-    ```json
-    [
-        {
-            "id": "60f1749b-1c87-46c9-ae0c-29b3d6f93499",
-            "name": "Alice Smith",
-            "countryCode": "US",
-            "airline": "American Airlines",
-            "flight": "AA123",
-            "arrival": "2024-07-21T08:00:00Z",
-            "accommodation": "Hotel Central"
-        }
-    ]
-    ```
-
-### GET `/delegates`
-
-Retorna la información del delegado dado el su `qr` de enrolamiento
-
--   **Params:**
-    ```json
-    {
-        "qr": "string"
-    }
-    ```
--   **Response:** `IDelegate`
-
-### POST `/delegates/{id}/enroll`
-
-Asocia el código `qr` con el delegado `id`
-
--   **Payload:**
-    ```json
-    {
-        "qr": "string"
-    }
-    ```
--   **Response:** `IDelegate`
--   **Ejemplo:**
-    ```json
-    [
-        {
-            "id": "60f1749b-1c87-46c9-ae0c-29b3d6f93499",
-            "name": "Alice Smith",
-            "countryCode": "US",
-            "flight": "AA123",
-            "airline": "American Airlines",
-            "arrival": "2024-07-21T08:00:00Z",
-            "accommodation": "Hotel Central",
-            "enrolled": {
-                "qr": "bb241222-30ee-4e34-9ee4-8e594923006b",
-                "at": "2024-07-21T08:30:00Z",
-                "by": "Pedro Pérez"
-            }
-        }
-    ]
-    ```
-
-### POST `/delegates/{id}/register_luggage`
-
-Asocia el código `qr` con un equipaje del delegado `id`
-
--   **Payload:**
-    ```json
-    {
-        "qr": "string"
-    }
-    ```
--   **Response:** `IDelegate`
--   **Ejemplo:**
-    ```json
-    [
-        {
-            "id": "delegate1",
-            "name": "Alice Smith",
-            "countryCode": "US",
-            "flight": "AA123",
-            "airline": "American Airlines",
-            "arrival": "2024-07-21T08:00:00Z",
-            "accommodation": "Hotel Central",
-            "enrolled": {
-                "qr": "bb241222-30ee-4e34-9ee4-8e594923006b",
-                "at": "2024-07-21T08:30:00Z",
-                "by": "Pedro Pérez"
+            {
+                "id": "23456",
+                "name": "Jane Smith",
+                "countryCode": "CA",
+                "accommodation": "Hotel Marriott Santiago",
+                "luggageCount": 3
             },
-            "luggage": [
-                {
-                    "qr": "8b370648-8d7a-4178-8823-bbdc5b7d601b",
-                    "at": "2024-07-21T08:35:00Z",
-                    "by": "Pedro Pérez"
-                }
-            ]
-        }
-    ]
-    ```
-
-## Registrar delegado en Punto de Control
-
-### POST `/control_points/{id}/log`
-
-Agrega al registro que el código `qr` fue escaneado en el punto de control `id` y guarda el voluntario que lo escaneó y la fecha/hora en que ocurrió. Retorna `true` si fue exitoso.
-
--   **Payload:**
-    ```json
-    {
-        "qr": "string"
+            ...
+        ]
     }
     ```
+
+### `GET /trips/{tripId}/delegate/{delegateId}`
+
+Retorna la información del delegado `delegateId` con respecto al viaje `tripId`
+
+-   **Response:** `IDelegate`
+-   **Ejemplo:**
+
+    ```json
+    {
+        "id": "53580",
+        "name": "John Smith",
+        "countryCode": "US",
+        "accommodation": "Hotel Marriott Santiago",
+        "luggageCount": 2,
+        "checkedBy": "Juan Pérez",
+        "checkedAt": "8/12/2024, 6:29:20 PM",
+    },
+    ```
+
+## Registro de delegado en viaje
+
+### POST `/trips/{tripId}/delegate/{delegateId}/check_in`
+
+Agrega al registro que el delegado `delegateId` fue chequeado en el viaje `tripId`, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió. Retorna `true` si fue exitoso.
+
 -   **Response:** `boolean`
 
-## Registrar emergencias en Punto de Control
+### POST `/trips/{tripId}/delegate/{delegateId}/check_out`
 
-Registra la eventualidad de un caso de emergencia asociado a un delegado. `qr` es el código de enrolamiento del delegado y `message` es un texto con las observaciones del voluntario de lleva a cabo el registro
+Remueve el registro del delegado `delegateId` en el viaje `tripId`, eliminando el voluntario que previamente lo chequeó y la fecha/hora. Retorna `true` si fue exitoso.
 
-### POST `/control_points/{id}/emergency`
+-   **Response:** `boolean`
+
+## Registro de estado del viaje
+
+### POST `/trips/{tripId}/departure`
+
+Registra que el viaje `tripId` ha partido desde su origen, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió (`departureTime`). Retorna `true` si fue exitoso.
+
+-   **Response:** `boolean`
+
+### POST `/trips/{tripId}/arrival`
+
+Registra que el viaje `id` ha llegado a su destino, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió (`arrivalTime`). Retorna `true` si fue exitoso.
+
+-   **Response:** `boolean`
+
+### `GET /trips/{tripId}/protocols`
+
+Retorna el texto que se mostrará en la sección de protocolos, asociado al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
+
+-   **Response ejemplo:**
+    ```json
+        {
+            "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
+            "tripName": "Bus 15 Aeropuerto - Hotel",
+            "text": "
+                Aquí puede publicarse información importante relacionada <i style={{ fontWeight: 600 }}>con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.
+                <p>Por ejemplo:</p>
+                <ul>
+                    <li>Protocolos de seguridad que se deben seguir </li>
+                    <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>
+                    <li>Qué hacer ante un imprevisto</li>
+                    <li>Rutas de evacuación</li>
+                    <li>
+                        Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:
+                        <br />
+                        <br />
+                        <div>
+                            <img src='https://placehold.co/400' width='100%' style={{ maxWidth: '300px' }}  />
+                        </div>
+                    </li>
+                </ul>
+            ",
+        }
+    ```
+
+### `GET /trips/{id}/emergency_info`
+
+Retorna el texto que se mostrará en la sección de emergencias asociadas al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
+
+-   **Response ejemplo:**
+    ```json
+        {
+            "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
+            "tripName": "Bus 15 Aeropuerto - Hotel",
+            "text": "
+                <p>
+                    En caso de emergencias durante esta asignación el voluntario puede consultar esta sección para encontrar información sobre hospitales, clínicas, farmacias, etc. cercanos a la ubicación
+                    de esta asignación.
+                </p>
+                <p>Por ejemplo:</p>
+                <ul>
+                    <li>
+                        <div>Hospital Gustavo Fricke</div>
+                        <a href='https://maps.google.com/?q=-33.02877500992159,%20-71.54304099594539'>📍 Álvarez 1532, Viña del Mar, Valparaíso</a>
+                    </li>
+                    <li>
+                        <div>Farmacia Cruz Verde</div>
+                        <a href='https://maps.google.com/?q=-32.99438845000991, -71.51027942681407'>📍 Avenida Alessandri, Almte. Gómez Carreño 4085, Viña del Mar, Valparaíso</a>
+                    </li>
+                </ul>
+                <p>También puede reportar detalles de la emergencia introduciendo el id del delegado y registrando un mensaje al comité de hospitalidad.</p>
+            ",
+        }
+    ```
+
+### `GET /trips/{tripId}/notifications`
+
+Retorna un `INotificationsList` con todas las notificaciones asociadas al viaje `tripId`. La app se encargará de consultar este endpoint con cierta frecuencia y destacar las notificaciones más recientes.
+
+-   **Response:** `INotificationsList`
+-   **Ejemplo:**
+    ```json
+    {
+        "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
+        "tripName": "Bus 15 Aeropuerto - Hotel",
+        "notifications": [
+            {
+                "id": "fbc5f630-2388-46ee-b7cb-e00236a6e22f",
+                "created_at": "2024-07-21T10:00:00Z",
+                "subject": "Consideración importante",
+                "message": "Sit amet diam diam lorem et sanctus sea dolor erat stet, sit voluptua gubergren dolores ipsum voluptua et aliquyam nonumy."
+            }
+        ]
+    }
+    ```
+
+## Registrar emergencias en un viaje
+
+Registra la eventualidad de un caso de emergencia asociado al delegado `delegateId` en el viaje `tripId`. `message` es un texto con las observaciones del voluntario que realiza el reporte
+
+### POST `/trips/{tripId}/report_emergency`
 
 -   **Payload:**
     ```json
     {
-        "qr": "string",
+        "delegateId": "string",
         "message": "string"
     }
     ```
