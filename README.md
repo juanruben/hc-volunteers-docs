@@ -277,10 +277,10 @@ Retorna el texto que se mostrará en la sección de protocolos, asociado al viaj
 
 -   **Response ejemplo:**
     ```json
-        {
-            "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
-            "tripName": "Bus 15 Aeropuerto - Hotel",
-            "text": "
+    {
+        "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
+        "tripName": "Bus 15 Aeropuerto - Hotel",
+        "text": `
                 Aquí puede publicarse información importante relacionada <i style={{ fontWeight: 600 }}>con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.
                 <p>Por ejemplo:</p>
                 <ul>
@@ -297,8 +297,8 @@ Retorna el texto que se mostrará en la sección de protocolos, asociado al viaj
                         </div>
                     </li>
                 </ul>
-            ",
-        }
+            `
+    }
     ```
 
 ### `GET /trips/{id}/emergency_info`
