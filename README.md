@@ -1,4 +1,4 @@
-# Herramienta de Registro para Asambleas Especiales Chile 2024
+# Herramienta de Registro de Transporte para Asambleas Especiales, Chile 2024
 
 ## Objetivo
 
