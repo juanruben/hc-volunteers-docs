@@ -6,11 +6,11 @@ El propósito de esta herramienta es proporcionar un mecanismo para registrar lo
 
 [Aplicación](https://d2zasmofz30od8.cloudfront.net/)
 
--   email: voluntario@transporte.cl
+-   email: volunteers@example.com
 
--   contraseña: Clave123!
+-   contraseña: Password123!
 
-# Casos de uso
+<!-- # Casos de uso
 
 ## Ingreso
 
@@ -50,7 +50,7 @@ En caso de surgir una emergencia con un delegado, también podrá reportar detal
 
 ![assignmets](./pics/emergency.png)
 ![assignmets](./pics/emergency-button.png)
-![assignmets](./pics/emergency-report.png)
+![assignmets](./pics/emergency-report.png) -->
 
 # Consideraciones técnicas
 
@@ -58,24 +58,71 @@ En caso de surgir una emergencia con un delegado, también podrá reportar detal
 
 ```typescript
 // id: identificador único para el viaje. Será utilizado en otras operaciones. Se recomienda que sea un guid
-// nombre: es el nombre visible del viaje
+// name: es el nombre visible del viaje
 // description: descripción visible del viaje
-// showLuggage: opcional. booleano. Indica si en el proceso de registro el voluntario debería visualizar información de equipaje (cantidad)
-// departureTime: opcional. Fecha y hora en que es registrada la partida del transporte
-// arrivalTime: opcional. Fecha y hora en que es registrada la llegada del transporte
+// origin: Nombre del punto de origen del viaje
+// destination: Nombre del punto de destino del viaje
+// showLuggage: opcional. Indica si en el proceso de registro el voluntario debería contar con la funcionalidad que permite gestionar el equipaje
+// isRoundTrip: optional. Indica si el viaje debe considerarse ida-vuelta
+// outboundDepartureTime: opcional. Fecha y hora en que es registrada la partida del transporte desde el punto de origen
+// outboundArrivalTime: opcional. Fecha y hora en que es registrada la llegada del transporte al punto de destino
+// returnDepartureTime: opcional. Fecha y hora en que es registrada la partida del transporte de regreso
+// returnArrivalTime: opcional. Fecha y hora en que es registrada la llegada del transporte de regreso al punto de origen
+// delegates: Arreglo de delegados asignados al viaje
 interface ITrip {
     id: string;
     name: string;
     description: string;
+    origin: string;
+    destination: string;
     showLuggage?: boolean;
-    departureTime?: string;
-    arrivalTime?: string;
+    isRoundTrip?: boolean;
+
+    outboundDepartureTime?: string;
+    outboundArrivalTime?: string;
+    returnDepartureTime?: string;
+    returnArrivalTime?: string;
+
     delegates: IDelegate[];
+}
+
+// id: identificador único para el delegado
+// nombre: nombre completo del delegado
+// countryCode: Código de dos caracteres del país de procedencia
+// accommodation: Nombre del hotel en donde aloja el delegado
+// outboundTripCheckedBy: opcional. Nombre del voluntario que registró el embarque de salida del delegado
+// outboundTripCheckedAt: opcional. Fecha y hora en la que se registró el embarque de salida del delegado
+// returnTripCheckedBy: opcional. Nombre del voluntario que registró el embarque de regreso del delegado
+// returnTripCheckedAt: opcional. Fecha y hora en la que se registró el embarque de regreso del delegado
+// luggageCount: opcional. Cantidad de piezas de equipaje del delegado
+// checkedLuggageCount: opcional. Cantidad de piezas de equipaje escaneadas del delegado
+interface IDelegate {
+    id: string;
+    name: string;
+    countryCode: string;
+    accommodation: string;
+
+    outboundTripCheckedBy: string;
+    outboundTripCheckedAt: string;
+    returnTripCheckedBy: string;
+    returnTripCheckedAt: string;
+
+    luggageCount?: number;
+    checkedLuggageCount?: number;
+}
+
+// tripId: identificador único del viaje. Se recomienda que sea un guid
+// title: nombre visible del titulo del viaje
+// content: contenido a mostrar
+interface IProtocol {
+    tripId: string;
+    title: string;
+    content: string;
 }
 
 // id: identificador único para la notificación. Se recomienda que sea un guid
 // created_at: Fecha/hora en que se creó la notificación en el backoffice
-// subject: títulod de la notificación
+// subject: título de la notificación
 // message: cuerpo de la notificación
 interface INotification {
     id: string;
@@ -93,39 +140,13 @@ interface INotificationsList {
     notifications: INotification[];
 }
 
-// id: identificador único para el delegado
-// nombre: nombre completo del delegado
-// countryCode: Código de dos caracteres del país de procedencia
-// accommodation: Nombre del hotel en donde aloja el delegado
-// checkedBy: opcional. Nombre del voluntario que registró el embarque del delegado
-// checkedAt: opcional. Fecha y hora en la que se registró el embarque del delegado
-// luggageCount: Opcional. Cantidad de piezas de equipaje del delegado
-interface IDelegate {
-    id: string;
-    name: string;
-    countryCode: string;
-    accommodation: string;
-    checkedBy?: string;
-    checkedAt?: string;
-    luggageCount?: number;
-}
-
 // tripId: identificador único del viaje. Se recomienda que sea un guid
-// tripName: nombre visible del viaje
-// text: contenido a mostrar
+// title: nombre visible del titulo del viaje
+// content: contenido a mostrar
 interface IEmergencyInfo {
     tripId: string;
-    tripName: string;
-    text: string;
-}
-
-// tripId: identificador único del viaje. Se recomienda que sea un guid
-// tripName: nombre visible del viaje
-// text: contenido a mostrar
-interface IProtocol {
-    tripId: string;
-    tripName: string;
-    text: string;
+    title: string;
+    content: string;
 }
 ```
 
@@ -133,7 +154,7 @@ interface IProtocol {
 
 ## Autenticación
 
-#### POST /auth/login
+#### POST /transport_volunteers/auth/login
 
 -   **Payload:**
     ```json
@@ -146,9 +167,9 @@ interface IProtocol {
     ```json
     {
         "token": "string",
-        "role": "string",
-        "volunteer_profile": {
-            "name": "string"
+        "transport_volunteer": {
+            "name": "string",
+            "email": "string"
         }
     }
     ```
@@ -156,9 +177,9 @@ interface IProtocol {
     ```json
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-        "role": "operator",
-        "volunteer_profile": {
-            "name": "Pedro Pérez"
+        "transport_volunteer": {
+            "name": "John Doe",
+            "email": "volunteers@example.com"
         }
     }
     ```
@@ -169,23 +190,62 @@ Todos los endpoints a continuación están restringidos a usuarios registrados y
 
 ### GET `/trips`
 
-Retorna los viajes en los que el voluntario ha sido asignado en la fecha actual.
+Retorna los viajes en los que el voluntario asociado al `token` que se envía en el header del request, ha sido asignado en la fecha `date`.
+
+-   **Params:** `date`
+-   **Ejemplo:** `2024-10-25`
 
 -   **Response:** `ITrip[]`
 -   **Ejemplo:**
-    ```json
-    [
-        {
-            "id": "5390efa3-c9e2-47e1-a74f-3a163021f71b",
-            "name": "Bus 15 Aeropuerto - Hotel",
-            "address": "Best Western, Courtyard, Marriott",
-            "showLuggage": true,
-            "departureTime": undefined
-            "arrivalTime": undefined
-            "delegates": []
-        }
-    ]
-    ```
+
+```json
+[
+    {
+        "id": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac65",
+        "name": "Bus 1",
+        "description": "Best Western, Courtyard, Marriott",
+        "showLuggage": true,
+        "origin": "Aeropuerto",
+        "destination": "Hotel",
+        "delegates": [
+            {
+                "id": "53580",
+                "name": "John Smith",
+                "countryCode": "US",
+                "accommodation": "Hotel Marriott Santiago"
+            },
+            {
+                "id": "23456",
+                "name": "Jane Smith",
+                "countryCode": "CA",
+                "accommodation": "Hotel Marriott Santiago"
+            }
+        ]
+    },
+    {
+        "id": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
+        "name": "Bus 15",
+        "description": "Best Western, Courtyard, Marriott",
+        "isRoundTrip": true,
+        "origin": "Hotel",
+        "destination": "Evento",
+        "delegates": [
+            {
+                "id": "53580",
+                "name": "John Smith",
+                "countryCode": "US",
+                "accommodation": "Hotel Marriott Santiago"
+            },
+            {
+                "id": "23456",
+                "name": "Jane Smith",
+                "countryCode": "CA",
+                "accommodation": "Hotel Marriott Santiago"
+            }
+        ]
+    }
+]
+```
 
 ### GET `/trips/{tripId}`
 
@@ -194,35 +254,38 @@ Retorna la información del viaje `tripId`.
 -   **Response:** `ITrip`
 -   **Ejemplo:**
 
-    ```json
-    {
-        "id": "5390efa3-c9e2-47e1-a74f-3a163021f71b",
-        "name": "Bus 15 Aeropuerto - Hotel",
-        "address": "Best Western, Courtyard, Marriott",
-        "showLuggage": true,
-        "departureTime": undefined
-        "arrivalTime": undefined
-        "delegates": [
-            {
-                "id": "53580",
-                "name": "John Smith",
-                "countryCode": "US",
-                "accommodation": "Hotel Marriott Santiago",
-                "luggageCount": 2,
-                "checkedBy": "Juan Pérez",
-                "checkedAt": "8/12/2024, 6:29:20 PM",
-            },
-            {
-                "id": "23456",
-                "name": "Jane Smith",
-                "countryCode": "CA",
-                "accommodation": "Hotel Marriott Santiago",
-                "luggageCount": 3
-            },
-            ...
-        ]
-    }
-    ```
+```json
+{
+    "id": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac65",
+    "name": "Bus 1",
+    "description": "Best Western, Courtyard, Marriott",
+    "showLuggage": true,
+    "origin": "Aeropuerto",
+    "destination": "Hotel",
+
+    // "outboundDepartureTime": undefined,
+    // "outboundArrivalTime": undefined,
+    "delegates": [
+        {
+            "id": "53580",
+            "name": "John Smith",
+            "countryCode": "US",
+            "accommodation": "Hotel Marriott Santiago",
+            "outboundCheckedBy": "John Doe",
+            "outboundCheckedAt": "8/12/2024, 6:29:20 PM",
+            "luggageCount": 2,
+            "checkedLuggageCount": 1
+        },
+        {
+            "id": "23456",
+            "name": "Jane Smith",
+            "countryCode": "CA",
+            "accommodation": "Hotel Marriott Santiago",
+            "luggageCount": 3
+        }
+    ]
+}
+```
 
 ### `GET /trips/{tripId}/delegate/{delegateId}`
 
@@ -238,8 +301,9 @@ Retorna la información del delegado `delegateId` con respecto al viaje `tripId`
         "countryCode": "US",
         "accommodation": "Hotel Marriott Santiago",
         "luggageCount": 2,
-        "checkedBy": "Juan Pérez",
-        "checkedAt": "8/12/2024, 6:29:20 PM",
+        "checkedLuggageCount": 1,
+        "outboundCheckedBy": "John Doe",
+        "outboundCheckedAt": "8/12/2024, 6:29:20 PM",
     },
     ```
 
@@ -247,13 +311,49 @@ Retorna la información del delegado `delegateId` con respecto al viaje `tripId`
 
 ### POST `/trips/{tripId}/delegate/{delegateId}/check_in`
 
-Agrega al registro que el delegado `delegateId` fue chequeado en el viaje `tripId`, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió. Retorna `true` si fue exitoso.
+Agrega al registro que el delegado `delegateId` fue chequeado en el viaje `tripId`, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió. El parámetro `isReturnTrip` será enviado `true` cuando en un viaje de ida y vuelta se está chequeando al delegado al momento de abordar el transporte en el viaje de regreso.
+
+Retorna `true` si fue exitoso.
+
+-   **Payload:**
+
+    ```json
+    {
+        "isReturnTrip": true
+    }
+    ```
 
 -   **Response:** `boolean`
 
 ### POST `/trips/{tripId}/delegate/{delegateId}/check_out`
 
-Remueve el registro del delegado `delegateId` en el viaje `tripId`, eliminando el voluntario que previamente lo chequeó y la fecha/hora. Retorna `true` si fue exitoso.
+Remueve el registro del delegado `delegateId` en el viaje `tripId`, eliminando el voluntario que previamente lo chequeó y la fecha/hora. El parámetro `isReturnTrip` será enviado `true` cuando se trata de un viaje de ida y vuelta y se está removiendo al delegado como chequeado en el viaje de regreso. La finalidad de este endpoint es dar la opción de desmarcar un delegado que haya podido ser chequeado por error.
+
+Retorna `true` si fue exitoso.
+
+-   **Payload:**
+
+    ```json
+    {
+        "isReturnTrip": true
+    }
+    ```
+
+-   **Response:** `boolean`
+
+### POST `/trips/{tripId}/luggage`
+
+Registra el equipaje que posee el código QR `qr`, en el viaje `tripId`. En caso exitoso (cuando el equipaje no ha sido escaneado y pertenece a un delegado asignado al viaje `tripId`), esto significa que será incrementado el campo `checkedLuggageCount` del delegado propietario del equipaje. Importante: Debe tenerse en cuenta que al escanear un mismo código QR varias veces, el incremento no se vea afectado.
+
+Retorna `true` si fue exitoso.
+
+-   **Payload:**
+
+    ```json
+    {
+        "qr": "1"
+    }
+    ```
 
 -   **Response:** `boolean`
 
@@ -261,14 +361,28 @@ Remueve el registro del delegado `delegateId` en el viaje `tripId`, eliminando e
 
 ### POST `/trips/{tripId}/departure`
 
-Registra que el viaje `tripId` ha partido desde su origen, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió (`departureTime`). Retorna `true` si fue exitoso.
+Registra que el viaje `tripId` ha partido, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió (modifica `outboundDepartureTime` o `returnDepartureTime`, según el valor de `isReturnTrip`). El parámetro `isReturnTrip` será enviado `true` cuando se trata de un viaje de ida y vuelta y se está iniciando el viaje de regreso.
+Retorna `true` si fue exitoso.
 
+-   **Payload:**
+    ```json
+    {
+        "isReturnTrip": true
+    }
+    ```
 -   **Response:** `boolean`
 
 ### POST `/trips/{tripId}/arrival`
 
-Registra que el viaje `id` ha llegado a su destino, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió (`arrivalTime`). Retorna `true` si fue exitoso.
+Registra que el viaje `tripId` ha llegado a su destino, registrando el voluntario que lo chequeó y la fecha/hora en que ocurrió (modifica `outboundArrivalTime` o `returnArrivalTime`, según el valor de `isReturnTrip`). El parámetro `isReturnTrip` será enviado `true` cuando se trata de un viaje de ida y vuelta y se está dando por finalizado el viaje de regreso.
+Retorna `true` si fue exitoso.
 
+-   **Payload:**
+    ```json
+    {
+        "isReturnTrip": true
+    }
+    ```
 -   **Response:** `boolean`
 
 ## Otros
@@ -282,8 +396,8 @@ Retorna el texto que se mostrará en la sección de protocolos, asociado al viaj
     ```json
     {
         "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
-        "tripName": "Bus 15 Aeropuerto - Hotel",
-        "text": "Aquí puede publicarse información importante relacionada <i style=\"font-weight: 600;\">con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>Protocolos de seguridad que se deben seguir </li>\n        <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>\n        <li>Qué hacer ante un imprevisto</li>\n        <li>Rutas de evacuación</li>\n        <li>\n            Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:\n            <br />\n            <br />\n            <div>\n                <img src='https://placehold.co/400' width='100%' style=\"max-width: 300px;\" />\n            </div>\n        </li>\n    </ul>"
+        "title": "Bus 15",
+        "content": "Aquí puede publicarse información importante relacionada <i style=\"font-weight: 600;\">con esta asignación</i> chequeando equipaje. La verán todos los voluntarios asociados a la misma.\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>Protocolos de seguridad que se deben seguir </li>\n        <li>Procedimientos definidos por el comité de hospitalidad para esta asignación</li>\n        <li>Qué hacer ante un imprevisto</li>\n        <li>Rutas de evacuación</li>\n        <li>\n            Incluso puede haber imágenes provenientes de la configuración de la asignación en el backoffice:\n            <br />\n            <br />\n            <div>\n                <img src='https://placehold.co/400' width='100%' style=\"max-width: 300px;\" />\n            </div>\n        </li>\n    </ul>"
     }
     ```
 
@@ -296,8 +410,8 @@ Retorna el texto que se mostrará en la sección de emergencias asociadas al via
     ```json
     {
         "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
-        "tripName": "Bus 15 Aeropuerto - Hotel",
-        "text": "<p>\n        En caso de emergencias durante esta asignación el voluntario puede consultar esta sección para encontrar información sobre hospitales, clínicas, farmacias, etc. cercanos a la ubicación\n        de esta asignación.\n    </p>\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>\n            <div>Hospital Gustavo Fricke</div>\n            <a href='https://maps.google.com/?q=-33.02877500992159,%20-71.54304099594539'>📍 Álvarez 1532, Viña del Mar, Valparaíso</a>\n        </li>\n        <li>\n            <div>Farmacia Cruz Verde</div>\n            <a href='https://maps.google.com/?q=-32.99438845000991,-71.51027942681407'>📍 Avenida Alessandri, Almte. Gómez Carreño 4085, Viña del Mar, Valparaíso</a>\n        </li>\n    </ul>\n    <p>También puede reportar detalles de la emergencia introduciendo el id del delegado y registrando un mensaje al comité de hospitalidad.</p>"
+        "title": "Bus 15",
+        "content": "<p>\n        En caso de emergencias durante esta asignación el voluntario puede consultar esta sección para encontrar información sobre hospitales, clínicas, farmacias, etc. cercanos a la ubicación\n        de esta asignación.\n    </p>\n    <p>Por ejemplo:</p>\n    <ul>\n        <li>\n            <div>Hospital Gustavo Fricke</div>\n            <a href='https://maps.google.com/?q=-33.02877500992159,%20-71.54304099594539'>📍 Álvarez 1532, Viña del Mar, Valparaíso</a>\n        </li>\n        <li>\n            <div>Farmacia Cruz Verde</div>\n            <a href='https://maps.google.com/?q=-32.99438845000991,-71.51027942681407'>📍 Avenida Alessandri, Almte. Gómez Carreño 4085, Viña del Mar, Valparaíso</a>\n        </li>\n    </ul>\n    <p>También puede reportar detalles de la emergencia introduciendo el id del delegado y registrando un mensaje al comité de hospitalidad.</p>"
     }
     ```
 
@@ -310,7 +424,7 @@ Retorna un `INotificationsList` con todas las notificaciones asociadas al viaje 
     ```json
     {
         "tripId": "e1bcfd24-08fd-4e57-bbd5-e51c4c1fac64",
-        "tripName": "Bus 15 Aeropuerto - Hotel",
+        "tripName": "Bus 15.",
         "notifications": [
             {
                 "id": "fbc5f630-2388-46ee-b7cb-e00236a6e22f",
@@ -336,3 +450,7 @@ Registra la eventualidad de un caso de emergencia asociado al delegado `delegate
     }
     ```
 -   **Response:** `boolean`
+
+```
+
+```
