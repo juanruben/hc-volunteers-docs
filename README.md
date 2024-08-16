@@ -173,7 +173,7 @@ interface IEmergencyInfo {
         }
     }
     ```
-    -   **Ejemplo:**
+-   **Ejemplo:**
     ```json
     {
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
