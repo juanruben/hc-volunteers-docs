@@ -391,7 +391,8 @@ Retorna `true` si fue exitoso.
 
 Retorna el texto que se mostrará en la sección de protocolos, asociado al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
 
--   **Response ejemplo:**
+-   **Response:** IProtocol
+-   **Ejemplo:**
 
     ```json
     {
@@ -405,7 +406,8 @@ Retorna el texto que se mostrará en la sección de protocolos, asociado al viaj
 
 Retorna el texto que se mostrará en la sección de emergencias asociadas al viaje `tripId`. Puede ser texto enriquecido que se mostrará apropiadamente en la aplicación.
 
--   **Response ejemplo:**
+-   **Response:** IEmergencyInfo
+-   **Ejemplo:**
 
     ```json
     {
