@@ -355,7 +355,7 @@ Retorna `true` si fue exitoso.
     }
     ```
 
--   **Response:** `boolean`
+-   **Response:** `IDelegate`
 
 ## Registro de estado del viaje
 
