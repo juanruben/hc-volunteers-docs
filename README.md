@@ -345,7 +345,7 @@ Retorna `true` si fue exitoso.
 
 Registra el equipaje que posee el código QR `qr`, en el viaje `tripId`. En caso exitoso (cuando el equipaje no ha sido escaneado y pertenece a un delegado asignado al viaje `tripId`), esto significa que será incrementado el campo `checkedLuggageCount` del delegado propietario del equipaje. Importante: Debe tenerse en cuenta que al escanear un mismo código QR varias veces, el incremento no se vea afectado.
 
-Retorna `true` si fue exitoso.
+Si es exitoso retorna los datos del delegado `IDelegate`.
 
 -   **Payload:**
 
